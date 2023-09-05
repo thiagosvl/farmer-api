@@ -39,7 +39,7 @@ class FarmerController extends Controller
      */
     public function store(FarmerCreateRequest $request)
     {
-        $data = $request->validated();
+        $data = $request->all();
         $farmer = $this->service->create($data);
 
         return new FarmerResource($farmer);
@@ -73,7 +73,7 @@ class FarmerController extends Controller
      */
     public function update(Farmer $farmer, FarmerUpdateRequest $request)
     {
-        $data = $request->validated();
+        $data = $request->all();
         $farmer = $this->service->update($farmer, $data);
 
         return new FarmerResource($farmer);
